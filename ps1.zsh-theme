@@ -25,7 +25,6 @@ if (( ${+functions[git-info]} )); then
   autoload -Uz add-zsh-hook && add-zsh-hook precmd git-info
 fi
 
-branch_color="%F{222,92,64}"
-PS1='%n@%m %1~$branch_color${(e)git_info[prompt]}%F{reset} %# '
+branch_color="%F{red}"
+PS1='%B%F{159}%n@%m%f%b %B%F{yellow}%1~%f%b$branch_color${(e)git_info[prompt]}%F{reset} %B%F{cyan}%#%f%b '
 RPS1='${VIRTUAL_ENV:+"%F{3}(${VIRTUAL_ENV:t})"}%(?:: %F{1}✘ %?)%B${VIM:+" %F{6}V"}${(e)git_info[status]}%f%b'
-#SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
